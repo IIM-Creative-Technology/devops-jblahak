@@ -4,20 +4,18 @@ on:
     branches:
       - preprod
 jobs:
-  eslint:
-    name: eslint
-    runs-on: ubuntu-20.04
+  linter-action:
+    runs-on: ubuntu-latest
+    name: Linter action
     steps:
-      - uses: actions/checkout@v1
-      - name: install node v12
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - name: Prepare
+        run: npm ci
+      - name: Linter action
+        id: linter
+        uses: AntonKornus/TypeScript-Linter@1.0.0
         with:
-          node-version: 12
-      - name: npm install
-        run: npm install
-      - name: eslint
-        uses: icrawl/action-eslint@v1
-
+          folder: src
   deploy:
     runs-on: ubuntu-20.04
     steps:
