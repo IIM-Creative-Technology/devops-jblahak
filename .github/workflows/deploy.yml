@@ -9,10 +9,10 @@ jobs:
     steps:
       - name: Project initialization
         uses: actions/checkout@v2
-      - name: JS Linter
-        uses: actions/javascript-action@v1
+      - name: Typescript Linter
+        uses: mooyoul/tslint-actions@v1.1.1
         with:
-          milliseconds: 1000
+          pattern: '*.ts'
       - name: Check package version
         uses: technote-space/package-version-check-action@v1
       - name: Deploy on Heroku
