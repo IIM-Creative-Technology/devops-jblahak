@@ -16,7 +16,7 @@ jobs:
         uses: AntonKornus/TypeScript-Linter@1.0.0
         with:
           folder: src
-      - name: Check Version
+      - name: Packaging - Check Version
         uses: technote-space/package-version-check-action@v1
       - name: Heroku Deploy
         uses: akhileshns/heroku-deploy@v3.5.7
