@@ -4,13 +4,25 @@ on:
     branches:
       - preprod
 jobs:
+  eslint:
+    name: eslint
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: install node v12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: yarn install
+        run: yarn install
+      - name: eslint
+        uses: icrawl/action-eslint@v1
+
   deploy:
     runs-on: ubuntu-20.04
     steps:
       - name: Project initialization
         uses: actions/checkout@v2
-      - name: ESLint
-        uses: icrawl/action-eslint@v1
       - name: Check package version
         uses: technote-space/package-version-check-action@v1
       - name: Deploy on Heroku
