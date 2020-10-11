@@ -1,0 +1,10 @@
+input{
+  &.add-btn{
+    background: deepskyblue;
+    cursor: pointer;
+  }
+
+  &.add-btn:active{
+    background: lightskyblue;
+  }
+}

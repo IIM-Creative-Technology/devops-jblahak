@@ -1,0 +1,26 @@
+form{
+  div{
+    &.form-group{
+      margin: 10px auto;
+      width: 100%;
+    }
+  }
+
+  input, textarea{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  input::placeholder, textarea::placeholder{
+    opacity: 0.5;
+  }
+
+  // Est-ce que le outline none nuit à l'accessibilité ?
+  input:focus, textarea:focus{
+    outline: none;
+  }
+}
