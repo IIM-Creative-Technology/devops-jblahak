@@ -12,6 +12,7 @@ jobs:
       - name: Typescript Linter
         uses: mooyoul/tslint-actions@v1.1.1
         with:
+          token: ${{secrets.HEROKU_KEY}}
           pattern: '*.ts'
       - name: Check package version
         uses: technote-space/package-version-check-action@v1
