@@ -4,23 +4,18 @@ on:
     branches:
       - preprod
 jobs:
-  linter-action:
-    runs-on: ubuntu-latest
-    name: Linter action
-    steps:
-      - uses: actions/checkout@v2
-      - name: Prepare
-        run: npm install
-      - name: Linter action
-        id: linter
-        uses: AntonKornus/TypeScript-Linter@1.0.0
-        with:
-          folder: src
   deploy:
     runs-on: ubuntu-20.04
     steps:
       - name: Project initialization
         uses: actions/checkout@v2
+      - name: Prepare
+        run: npm install
+      - name: Linter Action
+        id: linter
+        uses: AntonKornus/TypeScript-Linter@1.0.0
+        with:
+          folder: src
       - name: Check package version
         uses: technote-space/package-version-check-action@v1
       - name: Deploy on Heroku
